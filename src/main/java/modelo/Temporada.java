@@ -1,5 +1,8 @@
 package modelo;
 
+import modelo.Errores.CapituloInexistente;
+import modelo.Errores.TemporadaIncorrecta;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +16,24 @@ public class Temporada {
     }
 
     public void agregarCapitulo(Capitulo c){
-        this.capitulos.add(c);
+        if(c.getNroTemporada()== nroTemporada) {
+            this.capitulos.add(c);
+        }
+        else{
+            throw new TemporadaIncorrecta("el nro de temporada del capitulo con coindide");
+        }
+    }
+
+    public List<Capitulo> getCapitulos() {
+        return capitulos;
+    }
+
+    public Capitulo buscarCapitulo(Integer nroCapitulo){
+        if(nroCapitulo> this.capitulos.size() || nroCapitulo == 0){
+            throw new CapituloInexistente("el capitulo no existe bro");
+        }
+        else{
+            return this.capitulos.get(nroCapitulo-1);
+        }
     }
 }
