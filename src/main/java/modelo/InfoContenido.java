@@ -23,6 +23,7 @@ public abstract  class InfoContenido {
         this.directores= new ArrayList<String>();
         this.actoresPrincipales= new ArrayList<String>();
         this.valoracionesDeUsuario= new ArrayList<Integer>();
+        this.linkYoutube = "";
     }
 
     public void agregarDirector(String director){

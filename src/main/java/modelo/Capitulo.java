@@ -6,8 +6,10 @@ public class Capitulo extends InfoContenido{
     private Integer nroCapitulo;
     private Integer nroTemporada;
 
-    public Capitulo(String titulo, LocalDate fechaDeEstreno, Integer duracion) {
+    public Capitulo(String titulo, LocalDate fechaDeEstreno, Integer duracion,Integer nroCapitulo,Integer nroTemporada) {
         super(titulo, fechaDeEstreno, duracion);
+        this.nroCapitulo = nroCapitulo;
+        this.nroTemporada = nroTemporada;
     }
 
     public void setNroCapitulo(Integer nroCapitulo) {
