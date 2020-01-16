@@ -36,4 +36,8 @@ public class Temporada {
             return this.capitulos.get(nroCapitulo-1);
         }
     }
+
+    public Integer getNroTemporada() {
+        return nroTemporada;
+    }
 }
