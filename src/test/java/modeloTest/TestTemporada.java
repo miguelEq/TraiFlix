@@ -2,6 +2,7 @@ package modeloTest;
 
 import modelo.Capitulo;
 import modelo.Errores.CapituloInexistente;
+import modelo.Errores.CapituloYaExiste;
 import modelo.Errores.TemporadaIncorrecta;
 import modelo.Temporada;
 import org.junit.Assert;
@@ -50,6 +51,19 @@ public class TestTemporada {
 
     @Test(expected = CapituloInexistente.class)
     public  void busco_el_capitulo_0(){
-        this.strangers.buscarCapitulo(0);
+        this.strangers.buscarCapitulo(-6);
+    }
+
+    @Test(expected = CapituloYaExiste.class)
+    public void agrego_capitulo_que_ya_existe(){
+        Capitulo cap = new Capitulo("El comienzo", LocalDate.of(2017,8,15),50,1,1);
+        this.strangers.agregarCapitulo(cap);
+    }
+
+    @Test
+    public void raiting_De_Temporada(){
+        this.capitulo1.agregarValoracion(10);
+        this.capitulo2.agregarValoracion(8);
+        Assert.assertEquals(this.strangers.raiting(),new Integer(9));
     }
 }

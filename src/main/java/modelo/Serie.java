@@ -87,4 +87,8 @@ public class Serie {
     public List<Temporada> getTemporadas() {
         return temporadas;
     }
+
+    public Integer raiting(){
+        return this.temporadas.stream().mapToInt(temp->temp.raiting()).reduce(0,(acum,elem)-> acum + elem) / this.temporadas.size();
+    }
 }

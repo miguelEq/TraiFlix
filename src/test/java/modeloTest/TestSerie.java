@@ -47,16 +47,30 @@ public class TestSerie {
         Assert.assertEquals(this.TWD.getTemporadas().size(),2);
         Assert.assertEquals(this.TWD.getTemporadas().get(0).getNroTemporada(),this.temporada1.getNroTemporada());
         Assert.assertEquals(this.TWD.getTemporadas().get(1).getNroTemporada(),this.temporada2.getNroTemporada());
-
     }
+
     @Test(expected = TemporadaYaExiste.class)
     public void agrego_una_temporada_que_ya_existe(){
         this.TWD.agregarTemporada(this.temporada1);
     }
+
     @Test(expected = TemporadaInvalida.class)
     public void agrego_una_temporada_invalida(){
         this.TWD.agregarTemporada(new Temporada(-1));
+    }
 
+    @Test
+    public void raiting_de_TWD(){
+        //Temp 2
+        this.capitulo1T2.agregarValoracion(10);
+        this.capitulo2T2.agregarValoracion(6);
+        //Temp1
+        this.capitulo1T1.agregarValoracion(9);
+        this.capitulo2T1.agregarValoracion(6);//si da 7,5 redondea para abajo
 
+        Assert.assertEquals(new Integer(7),this.temporada1.raiting());
+        Assert.assertEquals(new Integer(8),this.temporada2.raiting());
+
+        Assert.assertEquals(new Integer(7),this.TWD.raiting());
     }
 }
