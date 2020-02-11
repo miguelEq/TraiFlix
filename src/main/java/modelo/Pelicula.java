@@ -28,6 +28,7 @@ public class Pelicula extends  InfoContenido{
         return generos;
     }
 
+
     public List<String> getContenidoRelacionado() {
         return contenidoRelacionado;
     }

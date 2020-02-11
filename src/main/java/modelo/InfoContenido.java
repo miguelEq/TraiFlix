@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract  class InfoContenido {
     private Long id;
@@ -24,6 +25,19 @@ public abstract  class InfoContenido {
         this.actoresPrincipales= new ArrayList<String>();
         this.valoracionesDeUsuario= new ArrayList<Integer>();
         this.linkYoutube = "";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        InfoContenido that = (InfoContenido) o;
+        return Objects.equals(titulo, that.titulo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(titulo);
     }
 
     public void agregarDirector(String director){
