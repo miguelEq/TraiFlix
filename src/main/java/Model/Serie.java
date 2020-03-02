@@ -60,6 +60,8 @@ public class Serie extends Visualizable{
         return creadores;
     }
 
+
+
     @Override
     public String tipo() {
         return "Serie";
