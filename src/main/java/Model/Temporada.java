@@ -2,6 +2,7 @@ package Model;
 
 
 
+import Model.Errores.CapituloInvalido;
 import Model.Errores.CapituloYaExiste;
 import Model.Errores.TemporadaIncorrecta;
 
@@ -18,6 +19,11 @@ public class Temporada {
     }
 
     public void addCapitulo(Capitulo c){
+        if(c.getNroCapitulo()<1){
+            throw new CapituloInvalido("no se puede agregar un capitulo menor a 1");
+        }
+
+
         if(c.getNroTemporada() == this.nroTemporada){
             if(this.capitulos.stream().noneMatch(capitulo -> c.getNroCapitulo() == capitulo.getNroCapitulo())){
                 this.capitulos.add(c);

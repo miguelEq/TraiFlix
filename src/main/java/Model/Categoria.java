@@ -1,5 +1,5 @@
 package Model;
 
 public enum Categoria {
-    HORROR,COMEDIA,ACCION,ROMANCE,;
+    HORROR,COMEDIA,ACCION,ROMANCE;
 }
