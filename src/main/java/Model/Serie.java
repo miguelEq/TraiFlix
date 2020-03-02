@@ -61,7 +61,6 @@ public class Serie extends Visualizable{
     }
 
 
-
     @Override
     public String tipo() {
         return "Serie";
