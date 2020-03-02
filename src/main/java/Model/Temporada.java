@@ -2,8 +2,8 @@ package Model;
 
 
 
-import modelo.Errores.CapituloYaExiste;
-import modelo.Errores.TemporadaIncorrecta;
+import Model.Errores.CapituloYaExiste;
+import Model.Errores.TemporadaIncorrecta;
 
 import java.util.ArrayList;
 import java.util.List;

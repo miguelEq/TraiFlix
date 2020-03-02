@@ -1,4 +1,4 @@
-package modelo.Errores;
+package Model.Errores;
 
 public class TemporadaYaExiste extends RuntimeException {
 

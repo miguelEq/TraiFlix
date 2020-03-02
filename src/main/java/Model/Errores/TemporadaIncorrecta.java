@@ -1,4 +1,4 @@
-package modelo.Errores;
+package Model.Errores;
 
 public class TemporadaIncorrecta extends RuntimeException {
 

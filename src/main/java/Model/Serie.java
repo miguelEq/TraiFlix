@@ -2,9 +2,9 @@ package Model;
 
 
 
-import modelo.Errores.TemporadaInexistente;
-import modelo.Errores.TemporadaInvalida;
-import modelo.Errores.TemporadaYaExiste;
+import Model.Errores.TemporadaInexistente;
+import Model.Errores.TemporadaInvalida;
+import Model.Errores.TemporadaYaExiste;
 
 import java.util.ArrayList;
 import java.util.List;
