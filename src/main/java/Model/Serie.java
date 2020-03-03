@@ -12,6 +12,7 @@ import java.util.List;
 public class Serie extends Visualizable{
     private List<String> creadores;
     private List<Temporada> temporadas;
+    private List<LogSerie> logs;
 
     public Serie(Double id,String titulo){
         super(id,titulo);
@@ -55,6 +56,21 @@ public class Serie extends Visualizable{
         }
     }
 
+    public LogSerie logDeUsuario(Usuario user){
+        int n=0;
+        while(this.getLogs().size()>n && this.getLogs().get(n).getUsername() != user.getNombreUsuario()){
+            n++;
+        }
+        if(this.getLogs().size()>n){
+            return this.getLogs().get(n);
+        }
+        else {
+            LogSerie log= new LogSerie(user.getNombreUsuario());
+            this.getLogs().add(log);
+            return log;
+        }
+    }
+
     //GETTERS
     public List<Temporada> getTemporadas() {
         return temporadas;
@@ -64,6 +80,9 @@ public class Serie extends Visualizable{
         return creadores;
     }
 
+    public List<LogSerie> getLogs() {
+        return logs;
+    }
 
     @Override
     public String tipo() {

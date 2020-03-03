@@ -1,5 +1,7 @@
 package Model;
 
+import Model.Errores.NotFriend;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +41,11 @@ public class Usuario {
     }
     //si no existe la recomendacion la crea y si existia le agrega el amigo
     public void addContenidoRecomendado(Visualizable v,Usuario amigo){
+        if(this.amigos.stream().noneMatch(friend->friend.getNombreUsuario() == amigo.getNombreUsuario())){
+            throw new NotFriend("no se puede recomendar si no es un amigo");
+        }
+
+
         if(this.recomendadas.stream().noneMatch(r->r.getContenido().getTitulo() == v.getTitulo())){
             Recomendacion recomendacion_de_un_amigo= new Recomendacion(v);
             recomendacion_de_un_amigo.addRecomendador(amigo);
