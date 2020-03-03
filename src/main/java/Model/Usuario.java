@@ -13,7 +13,7 @@ public class Usuario {
     private List<Usuario> amigos;
     private List<Visualizable> vistas;
     private List<Visualizable> favoritas;
-    private List<Visualizable> recomendadas;
+    private List<Recomendacion> recomendadas;
 
 
     public Usuario(double id,String name,String usuario,LocalDate fechaRegistro,LocalDate fechaNacimiento){
@@ -37,8 +37,25 @@ public class Usuario {
     public void addContenidoFavorito(Visualizable v){
         this.favoritas.add(v);
     }
-    public void addContenidoRecomendado(Visualizable v){
-        this.recomendadas.add(v);
+    //si no existe la recomendacion la crea y si existia le agrega el amigo
+    public void addContenidoRecomendado(Visualizable v,Usuario amigo){
+        if(this.recomendadas.stream().noneMatch(r->r.getContenido().getTitulo() == v.getTitulo())){
+            Recomendacion recomendacion_de_un_amigo= new Recomendacion(v);
+            recomendacion_de_un_amigo.addRecomendador(amigo);
+            this.recomendadas.add(recomendacion_de_un_amigo);
+        }
+        else{
+            this.buscarRecomendacion(v.getTitulo()).addRecomendador(amigo);
+        }
+
+    }
+
+    private Recomendacion buscarRecomendacion(String titulo) {
+        int c=0;
+        while(this.recomendadas.get(c).getContenido().getTitulo() != titulo){
+            c++;
+        }
+        return this.recomendadas.get(c);
     }
 
     //GETTERS
@@ -75,7 +92,5 @@ public class Usuario {
         return vistas;
     }
 
-    public List<Visualizable> getRecomendadas() {
-        return recomendadas;
-    }
+
 }
