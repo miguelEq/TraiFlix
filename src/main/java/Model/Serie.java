@@ -19,6 +19,10 @@ public class Serie extends Visualizable{
         this.temporadas = new ArrayList<>();
     }
 
+    public void addCreador(String creador){
+        this.creadores.add(creador);
+    }
+
     public void addTemporada(Temporada temp){
         if(temp.getNroTemporada()<1){
             throw new TemporadaInvalida("el nro de temporada es menor a 1");
@@ -40,7 +44,7 @@ public class Serie extends Visualizable{
     private Temporada buscarTemporada(Integer nroTemporada) {
         int contador =0;
         int size= this.temporadas.size();
-        while(this.temporadas.get(contador).getNroTemporada() != nroTemporada && size > contador){
+        while( size > contador && this.temporadas.get(contador).getNroTemporada() != nroTemporada ){
             contador++;
         }
         if(size>contador){
