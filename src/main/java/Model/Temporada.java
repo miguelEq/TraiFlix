@@ -48,8 +48,12 @@ public class Temporada {
         return capitulos;
     }
 
-    public double raiting() {
-        return this.capitulos.stream().map(cap->cap.raiting()).reduce(0.0,(total,elem)-> total+elem)
-        / this.capitulos.size();
+    public int raiting() {
+        if (this.capitulos.size() == 0) {
+            return 0;
+        } else {
+            return this.capitulos.stream().map(cap -> cap.raiting()).reduce(0, (total, elem) -> total + elem)
+                    / this.capitulos.size();
+        }
     }
 }

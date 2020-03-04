@@ -58,5 +58,20 @@ public class TestTemporada {
     public  void  agrego_un_capitulo_negativo(){
         this.temp1.addCapitulo(new Capitulo(3.0,"Trampa",1,-3, LocalDate.of(2005,10,20),"40minutos","www.algo"));
     }
+
+    @Test
+    public void raiting_temp1(){
+        temp1.addCapitulo(capitulo1);
+        temp1.addCapitulo(capitulo2);
+        temp1.addCapitulo(capitulo3);
+        capitulo1.addPuntuacion(8);
+        capitulo2.addPuntuacion(5);
+        capitulo3.addPuntuacion(6);
+
+        Assert.assertEquals(capitulo1.raiting(),8);
+        Assert.assertEquals(capitulo2.raiting(),5);
+        Assert.assertEquals(capitulo3.raiting(),6);
+        Assert.assertEquals(temp1.raiting(),6);
+    }
  }
 

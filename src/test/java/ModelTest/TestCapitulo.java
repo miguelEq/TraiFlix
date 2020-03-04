@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+
 import java.util.Arrays;
 
 public class TestCapitulo {
@@ -33,5 +33,13 @@ public class TestCapitulo {
         Assert.assertEquals(this.capitulo1.getFechaDeEstreno(),LocalDate.of(2005,10,20));
         Assert.assertEquals(this.capitulo1.getLinkYoutube(),"www.algo");
         Assert.assertEquals(this.capitulo1.getTitulo(),"El Comienzo");
+    }
+
+    @Test
+    public void raiting_de_un_capitulo(){
+        this.capitulo1.addPuntuacion(10);
+        this.capitulo1.addPuntuacion(3);
+        // 6.5 redondea para abajo = 6.0 con numeros int
+        Assert.assertEquals(this.capitulo1.raiting(),6);
     }
 }

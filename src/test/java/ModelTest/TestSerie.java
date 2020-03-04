@@ -108,5 +108,16 @@ public class TestSerie {
         Assert.assertEquals(this.TWD.logDeUsuario(pepe).getUsername(),"pepe10");
 
     }
+    @Test
+    public void raiting_TWD(){
+        this.capitulo1.addPuntuacion(8);
+        this.capitulo2.addPuntuacion(9);
+        this.temporada1.addCapitulo(capitulo1);
+        temporada1.addCapitulo(capitulo2);
+        TWD.addTemporada(temporada1);
+        TWD.addTemporada(temporada2);
+
+        Assert.assertEquals(TWD.raiting(),4);
+    }
 
 }

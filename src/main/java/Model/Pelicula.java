@@ -60,7 +60,13 @@ public class Pelicula extends  Visualizable{
     }
 
     @Override
-    public double raiting() {
-        return this.puntuaciones.stream().reduce(0,(total,elem)->total + elem) / this.puntuaciones.size();
+    public int raiting() {
+        if(this.puntuaciones.size()==0){
+            return 0;
+        }
+        else {
+            return this.puntuaciones.stream().reduce(0, (total, elem) -> total + elem) / this.puntuaciones.size();
+        }
+
     }
 }

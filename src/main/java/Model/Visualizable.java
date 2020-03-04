@@ -51,5 +51,5 @@ public abstract class Visualizable {
 
     public abstract String tipo();
 
-    public abstract double raiting();
+    public abstract int raiting();
 }

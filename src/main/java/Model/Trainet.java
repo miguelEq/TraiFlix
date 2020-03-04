@@ -42,16 +42,24 @@ public class Trainet {
         return usuarios;
     }
 
-    public double raitingDePelicula(String titulo){
+    public Pelicula buscar_pelicula(String titulo){
+        return (Pelicula) this.buscar(titulo);
+    }
+    public Serie bucar_serie(String titulo){
+        return (Serie) this.buscar(titulo);
+    }
+
+    private Visualizable buscar(String titulo) {
         int n=0;
-        while(this.pelisYseries.size()>n && this.pelisYseries.get(n).getTitulo() != titulo){
+        while(this.pelisYseries.size()>n && this.pelisYseries.get(n).getTitulo()!= titulo){
             n++;
         }
         if(this.pelisYseries.size()>n){
-            return this.pelisYseries.get(n).raiting();
+            return this.pelisYseries.get(n);
         }
         else {
-            throw new RuntimeException("la pelicula no existe");
+            return null;
         }
     }
+
 }

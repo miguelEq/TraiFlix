@@ -53,4 +53,13 @@ public class TestPelicula {
         Assert.assertEquals(pelicula1.getContenidoRelacionado().get(1).getTitulo(),"Jumanji");
         Assert.assertEquals(pelicula1.getContenidoRelacionado().get(0).tipo(),"Pelicula");
     }
+
+    @Test
+    public  void raiting_de_pelicula1(){
+        pelicula1.addPuntuacion(8);
+        pelicula1.addPuntuacion(7);
+        pelicula1.addPuntuacion(7);
+        pelicula1.addPuntuacion(7);
+        Assert.assertEquals(pelicula1.raiting(),7.0,0);
+    }
 }
