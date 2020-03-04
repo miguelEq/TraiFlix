@@ -7,7 +7,7 @@ public abstract class Visualizable {
     private double id;
     private String titulo;
     private List<Categoria> categorias;
-    private List<String> clasificacion;
+    private List<Clasificacion> clasificacion;
     private List<Visualizable> contenidoRelacionado;
 
     protected Visualizable(Double id,String titulo){
@@ -21,7 +21,7 @@ public abstract class Visualizable {
     public void addCategoria(Categoria categoria){
         this.categorias.add(categoria);
     }
-    public void addClasificacion(String clasf){
+    public void addClasificacion(Clasificacion clasf){
         this.clasificacion.add(clasf);
     }
     public void addContenidoRelacionado(Visualizable v){
@@ -41,7 +41,7 @@ public abstract class Visualizable {
         return categorias;
     }
 
-    public List<String> getClasificacion() {
+    public List<Clasificacion> getClasificacion() {
         return clasificacion;
     }
 

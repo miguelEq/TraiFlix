@@ -38,7 +38,7 @@ public class TestSerie {
     public void info_de_TWD(){
         this.TWD.addCategoria(Categoria.ACCION);
         this.TWD.addCategoria(Categoria.HORROR);
-        this.TWD.addClasificacion("+16");
+        this.TWD.addClasificacion(Clasificacion.ATP);
 
       Assert.assertEquals(TWD.getContenidoRelacionado(),Arrays.asList());
       Assert.assertEquals(TWD.getTemporadas().size(),0);
@@ -46,7 +46,7 @@ public class TestSerie {
       Assert.assertEquals(TWD.getContenidoRelacionado(),(List)new ArrayList<String>());
       Assert.assertEquals(TWD.getTitulo(),"The Walking Dead");
       Assert.assertEquals(TWD.tipo(),"Serie");
-      Assert.assertEquals(TWD.getClasificacion().get(0),"+16");
+      Assert.assertEquals(TWD.getClasificacion().get(0),Clasificacion.ATP);
       Assert.assertEquals(TWD.getCategorias(),Arrays.asList(Categoria.ACCION,Categoria.HORROR));
     }
     @Test

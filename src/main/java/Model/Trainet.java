@@ -62,4 +62,12 @@ public class Trainet {
         }
     }
 
+    public List<Visualizable> getContentBy(Categoria c){
+        return new FilterCategoria().findByCategoria(c,this.pelisYseries);
+    }
+
+    public List<Visualizable> getContentBy(Clasificacion c){
+        return new FilterClasificacion().findbyClasificacion(c,this.pelisYseries);
+    }
+
 }

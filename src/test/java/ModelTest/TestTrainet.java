@@ -38,6 +38,14 @@ public class TestTrainet {
         kingkong =new Pelicula(3.0,"KingKong", LocalDate.of(2003,06,05),"180minutos","www.youtube/kingkong");
         godzilla.addContenidoRelacionado(kingkong);
         kingkong.addContenidoRelacionado(godzilla);
+        titanic.addCategoria(Categoria.ROMANCE);
+        titanic.addClasificacion(Clasificacion.MAS16);
+        godzilla.addCategoria(Categoria.ACCION);
+        godzilla.addClasificacion(Clasificacion.ATP);
+        kingkong.addCategoria(Categoria.ACCION);
+        kingkong.addCategoria(Categoria.ROMANCE);
+        kingkong.addClasificacion(Clasificacion.ATP);
+
 
         //Series
         //Stranger things
@@ -48,7 +56,9 @@ public class TestTrainet {
         temp1Stranger.addCapitulo(cap1Stranger);
         temp1Stranger.addCapitulo(cap2Stranger);
         StrangerThings.addTemporada(temp1Stranger);
-
+        StrangerThings.addCategoria(Categoria.ROMANCE);
+        StrangerThings.addCategoria(Categoria.HORROR);
+        StrangerThings.addClasificacion(Clasificacion.MAS13);
         //TWD
         TWD = new Serie(1.0,"The Walking Dead");
         temp1TWD = new Temporada(1);
@@ -63,7 +73,8 @@ public class TestTrainet {
         temp2TWD.addCapitulo(cap2TWDtemp2);
         TWD.addTemporada(temp1TWD);
         TWD.addTemporada(temp2TWD);
-
+        TWD.addCategoria(Categoria.HORROR);
+        TWD.addClasificacion(Clasificacion.MAS16);
         TWD.addContenidoRelacionado(StrangerThings);
         StrangerThings.addContenidoRelacionado(TWD);
 
@@ -118,4 +129,17 @@ public class TestTrainet {
         Assert.assertEquals(trainet.buscar_pelicula("ola"),null);
     }
 
+    @Test
+    public void busco_contenido_para_mayores_de_13(){
+        Assert.assertEquals(trainet.getContentBy(Clasificacion.MAS13).size(),1);
+        Assert.assertEquals(trainet.getContentBy(Clasificacion.MAS13).get(0).getTitulo(),"Stranger Things");
+    }
+
+    @Test
+    public void busco_contenido_romantico(){
+        Assert.assertEquals(trainet.getContentBy(Categoria.ROMANCE).size(),3);
+        Assert.assertEquals(trainet.getContentBy(Categoria.ROMANCE).get(0).getTitulo(),"Titanic");
+        Assert.assertEquals(trainet.getContentBy(Categoria.ROMANCE).get(1).getTitulo(),"KingKong");
+        Assert.assertEquals(trainet.getContentBy(Categoria.ROMANCE).get(2).getTitulo(),"Stranger Things");
+    }
 }
