@@ -47,4 +47,9 @@ public class Temporada {
     public List<Capitulo> getCapitulos() {
         return capitulos;
     }
+
+    public double raiting() {
+        return this.capitulos.stream().map(cap->cap.raiting()).reduce(0.0,(total,elem)-> total+elem)
+        / this.capitulos.size();
+    }
 }

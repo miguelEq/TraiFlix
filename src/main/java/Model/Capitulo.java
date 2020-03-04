@@ -74,4 +74,7 @@ public class Capitulo {
         return actoresPrincipales;
     }
 
+    public double raiting() {
+      return this.puntuaciones.stream().reduce(0,(total,elem)->total+elem) / this.puntuaciones.size();
+    }
 }

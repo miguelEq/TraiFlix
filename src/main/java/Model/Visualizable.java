@@ -50,4 +50,6 @@ public abstract class Visualizable {
     }
 
     public abstract String tipo();
+
+    public abstract double raiting();
 }

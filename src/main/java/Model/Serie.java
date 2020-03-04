@@ -88,6 +88,12 @@ public class Serie extends Visualizable{
         return "Serie";
     }
 
+    @Override
+    public double raiting() {
+        return this.temporadas.stream().map(elem->elem.raiting()).reduce(0.0,(total,elem)->total+elem)
+                / this.temporadas.size();
+    }
+
     public void addLogSerie(LogSerie log) {
         this.logs.add(log);
     }

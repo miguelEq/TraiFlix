@@ -58,4 +58,9 @@ public class Pelicula extends  Visualizable{
     public String tipo() {
         return "Pelicula";
     }
+
+    @Override
+    public double raiting() {
+        return this.puntuaciones.stream().reduce(0,(total,elem)->total + elem) / this.puntuaciones.size();
+    }
 }
