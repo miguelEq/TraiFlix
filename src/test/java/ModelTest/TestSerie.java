@@ -97,5 +97,16 @@ public class TestSerie {
         Assert.assertEquals(this.TWD.getContenidoRelacionado().get(0).tipo(),"Pelicula");
         Assert.assertEquals(this.TWD.getContenidoRelacionado().get(1).tipo(),"Serie");
     }
+    @Test
+    public void log_de_user_pepe(){
+        Usuario pepe= new Usuario(1.0,"pepe","pepe10",LocalDate.now(),LocalDate.now());
+
+        Assert.assertEquals(this.TWD.logDeUsuario(pepe),null);
+
+        this.TWD.addLogSerie(new LogSerie(pepe.getNombreUsuario()));
+
+        Assert.assertEquals(this.TWD.logDeUsuario(pepe).getUsername(),"pepe10");
+
+    }
 
 }

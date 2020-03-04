@@ -18,6 +18,7 @@ public class Serie extends Visualizable{
         super(id,titulo);
         this.creadores = new ArrayList<>();
         this.temporadas = new ArrayList<>();
+        this.logs = new ArrayList<>();
     }
 
     public void addCreador(String creador){
@@ -65,9 +66,7 @@ public class Serie extends Visualizable{
             return this.getLogs().get(n);
         }
         else {
-            LogSerie log= new LogSerie(user.getNombreUsuario());
-            this.getLogs().add(log);
-            return log;
+               return null;
         }
     }
 
@@ -87,5 +86,9 @@ public class Serie extends Visualizable{
     @Override
     public String tipo() {
         return "Serie";
+    }
+
+    public void addLogSerie(LogSerie log) {
+        this.logs.add(log);
     }
 }

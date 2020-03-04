@@ -39,6 +39,7 @@ public class Usuario {
     public void addContenidoFavorito(Visualizable v){
         this.favoritas.add(v);
     }
+
     //si no existe la recomendacion la crea y si existia le agrega el amigo
     public void addContenidoRecomendado(Visualizable v,Usuario amigo){
         if(this.amigos.stream().noneMatch(friend->friend.getNombreUsuario() == amigo.getNombreUsuario())){
@@ -99,5 +100,7 @@ public class Usuario {
         return vistas;
     }
 
-
+    public List<Recomendacion> getRecomendadas() {
+        return recomendadas;
+    }
 }
