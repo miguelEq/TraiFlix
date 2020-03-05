@@ -5,6 +5,7 @@ import Model.Errores.NotFriend;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Usuario {
     private double id;
@@ -102,5 +103,9 @@ public class Usuario {
 
     public List<Recomendacion> getRecomendadas() {
         return recomendadas;
+    }
+
+    public List<Serie> getSeriesVistas() {
+        return this.vistas.stream().filter(vista->vista.tipo()=="Serie").map(serie->(Serie) serie).collect(Collectors.toList());
     }
 }

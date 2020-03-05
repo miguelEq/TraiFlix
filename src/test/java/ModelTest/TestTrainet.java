@@ -142,4 +142,43 @@ public class TestTrainet {
         Assert.assertEquals(trainet.getContentBy(Categoria.ROMANCE).get(1).getTitulo(),"KingKong");
         Assert.assertEquals(trainet.getContentBy(Categoria.ROMANCE).get(2).getTitulo(),"Stranger Things");
     }
+    @Test
+    public void lucia_ve_titanic(){
+        trainet.verPelicula("Titanic","luciana12");
+        Assert.assertEquals(lucia.getVistas().size(),1);
+        Assert.assertEquals(lucia.getVistas().get(0).getTitulo(),"Titanic");
+    }
+
+    @Test
+    public void lucia_ve_stranger_things(){
+        trainet.verSerie("luciana12","Stranger Things",1,1);
+        Assert.assertEquals(lucia.getVistas().size(),1);
+        Assert.assertEquals(lucia.getVistas().get(0).getTitulo(),"Stranger Things");
+        Assert.assertEquals(StrangerThings.getLogs().get(0).getUsername(),"luciana12");
+
+    }
+
+    @Test
+    public void lucia_ve_toda_la_temporada_de_Stranger_things(){
+        trainet.verSerie("luciana12","Stranger Things",1,1);
+        trainet.verSerie("luciana12","Stranger Things",2,1);
+        Assert.assertEquals(trainet.seriesVistasCompletamente("luciana12").get(0),StrangerThings);
+    }
+
+    @Test
+    public void lucia_no_ve_todas_las_temporadas_de_TWD(){
+        trainet.verSerie("luciana12","The Walking Dead",1,1);
+        Assert.assertEquals(trainet.seriesVistasCompletamente("luciana12").size(),0);
+    }
+
+    @Test
+    public void lucia_ve_todo_TWD(){
+        trainet.verSerie("luciana12","The Walking Dead",1,1);
+        trainet.verSerie("luciana12","The Walking Dead",2,1);
+        trainet.verSerie("luciana12","The Walking Dead",1,2);
+        trainet.verSerie("luciana12","The Walking Dead",2,2);
+        Assert.assertEquals(trainet.seriesVistasCompletamente("luciana12").size(),1);
+        Assert.assertEquals(trainet.seriesVistasCompletamente("luciana12").get(0),TWD);
+    }
+
 }

@@ -59,6 +59,8 @@ public class TestSerie {
         Assert.assertEquals(TWD.getTemporadas().size(),2);
         Assert.assertEquals(TWD.getTemporadas().get(0).getNroTemporada(),new Integer(1));
         Assert.assertEquals(TWD.getTemporadas().get(1).getNroTemporada(),new Integer(2));
+        Assert.assertEquals(TWD.cantDeTemporadas(),2);
+        Assert.assertEquals(TWD.cantDeCapitulos(),0);
 
     }
 
@@ -101,11 +103,11 @@ public class TestSerie {
     public void log_de_user_pepe(){
         Usuario pepe= new Usuario(1.0,"pepe","pepe10",LocalDate.now(),LocalDate.now());
 
-        Assert.assertEquals(this.TWD.logDeUsuario(pepe),null);
+        Assert.assertEquals(this.TWD.logDeUsuario(pepe.getNombreUsuario()),null);
 
         this.TWD.addLogSerie(new LogSerie(pepe.getNombreUsuario()));
 
-        Assert.assertEquals(this.TWD.logDeUsuario(pepe).getUsername(),"pepe10");
+        Assert.assertEquals(this.TWD.logDeUsuario(pepe.getNombreUsuario()).getUsername(),"pepe10");
 
     }
     @Test

@@ -5,39 +5,40 @@ import Model.Errores.TemporadaInvalida;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LogSerie {
     private String username;
-    private List<Temporada> temporadas;
+    private List<LogTemporada> temporadas;
 
     public LogSerie(String user){
         this.username = user;
         this.temporadas = new ArrayList<>();
     }
 
-    public void verCapDeTemporada(Integer nroTemporada,Capitulo cap){
+    public void verCapDeTemporada(Integer nroTemporada,int cap){
         if(nroTemporada<1){
             throw new TemporadaInvalida("el numero de temporada no existe");
         }
-        if(this.temporadas.stream().noneMatch(temp->temp.getNroTemporada()==nroTemporada)){
-            Temporada temporada= new Temporada(nroTemporada);
-            temporada.addCapitulo(cap);
-            this.temporadas.add(temporada);
-        }else {
-            Integer n =0;
-            while (this.temporadas.get(n).getNroTemporada()!= nroTemporada){
-                n++;
-            }
-            temporadas.get(n).addCapitulo(cap);
+        List<LogTemporada> temps=this.temporadas.stream().filter(temp-> temp.getNroTemporada()==nroTemporada).collect(Collectors.toList());
+        if(temps.isEmpty()){
+            LogTemporada log=new LogTemporada(nroTemporada);
+            log.addCapitulo(cap);
+            this.temporadas.add(log);
+        }
+        else{
+            temps.get(0).addCapitulo(cap);
         }
 
     }
 
-    public List<Temporada> getTemporadas() {
+    public List<LogTemporada> getTemporadas() {
         return temporadas;
     }
 
     public String getUsername() {
         return username;
     }
+
+
 }

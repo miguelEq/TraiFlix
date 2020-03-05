@@ -8,6 +8,7 @@ import Model.Errores.TemporadaIncorrecta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Temporada {
     private List<Capitulo> capitulos;
@@ -54,6 +55,18 @@ public class Temporada {
         } else {
             return this.capitulos.stream().map(cap -> cap.raiting()).reduce(0, (total, elem) -> total + elem)
                     / this.capitulos.size();
+        }
+    }
+    public int cantCapitulos(){
+        return this.capitulos.size();
+    }
+
+    public boolean fuiVistaCompletamente(List<LogTemporada> temporadas) {
+        LogTemporada logTemp = temporadas.stream().filter(temp->temp.getNroTemporada() == nroTemporada).collect(Collectors.toList()).get(0);
+        if(logTemp == null){
+            return false;
+        }else {
+            return this.capitulos.stream().map(cap->cap.getNroCapitulo()).collect(Collectors.toSet()).equals(logTemp.getCapitulos());
         }
     }
 }

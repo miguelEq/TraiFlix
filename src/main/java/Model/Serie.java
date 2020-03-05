@@ -57,9 +57,9 @@ public class Serie extends Visualizable{
         }
     }
 
-    public LogSerie logDeUsuario(Usuario user){
+    public LogSerie logDeUsuario(String user){
         int n=0;
-        while(this.getLogs().size()>n && this.getLogs().get(n).getUsername() != user.getNombreUsuario()){
+        while(this.getLogs().size()>n && this.getLogs().get(n).getUsername() != user){
             n++;
         }
         if(this.getLogs().size()>n){
@@ -101,5 +101,16 @@ public class Serie extends Visualizable{
 
     public void addLogSerie(LogSerie log) {
         this.logs.add(log);
+    }
+
+    public int cantDeTemporadas(){
+        return this.temporadas.size();
+    }
+    public int cantDeCapitulos(){
+        int total=0;
+        for(Temporada t:temporadas){
+            total+= t.cantCapitulos();
+        }
+        return total;
     }
 }

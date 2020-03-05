@@ -28,19 +28,15 @@ public class TestLogSerie {
 
     @Test
     public void veo_un_cap_de_la_primera_temporada(){
-        this.logSerie.verCapDeTemporada(1,new Capitulo(1.0,"El Comienzo",1,1, LocalDate.of(2005,10,20),"40minutos","www.algo"));
+        this.logSerie.verCapDeTemporada(1,1);
         Assert.assertEquals(this.logSerie.getTemporadas().size(), 1);
-        Assert.assertEquals(this.logSerie.getTemporadas().get(0).getCapitulos().get(0).getTitulo(),"El Comienzo");
+        Assert.assertTrue(this.logSerie.getTemporadas().get(0).getCapitulos().contains(1));
 
-    }
-    @Test(expected = TemporadaIncorrecta.class)
-    public void veo_un_de_una_temporada_distinta(){
-        this.logSerie.verCapDeTemporada(1,new Capitulo(1.0,"El Comienzo",2,1, LocalDate.of(2005,10,20),"40minutos","www.algo"));
     }
 
     @Test(expected = TemporadaInvalida.class)
     public void veo_un_cap_de_una_temporada_negativa(){
-        this.logSerie.verCapDeTemporada(-1,new Capitulo(1.0,"El Comienzo",2,1, LocalDate.of(2005,10,20),"40minutos","www.algo"));
+        this.logSerie.verCapDeTemporada(-1,1);
     }
 
 }
