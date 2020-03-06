@@ -4,7 +4,7 @@ import Model.Trainet;
 import io.javalin.Javalin;
 import io.javalin.core.util.RouteOverviewPlugin;
 
-import java.util.Arrays;
+
 
 import static io.javalin.apibuilder.ApiBuilder.*;
 
@@ -12,7 +12,7 @@ public class Api {
 
 
     public static void main(String[] args){
-        ControllerUser controller =new ControllerUser();
+        ControllerTrainet controller =new ControllerTrainet();
         Trainet trainet = new Trainet();
         Javalin app = Javalin.create(javalinConfig ->
         {
@@ -22,10 +22,13 @@ public class Api {
         });
         app.start(7000);
         app.routes(()->{
-            path("/users",()-> {
+            path("users",()-> {
             post(controller::crearUser);
-            get(controller::allUsers);
+              path(":username",()->{
+                get(controller::getUser);
+              });
             });
+
         });
     }
 
