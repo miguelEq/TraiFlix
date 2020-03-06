@@ -24,7 +24,10 @@ public class Api {
         app.routes(()->{
             path("users",()-> {
             post(controller::crearUser);
-              path(":username",()->{
+              path("/login",()->{
+                  get(controller::login);
+              });
+              path("/:username",()->{
                 get(controller::getUser);
               });
             });

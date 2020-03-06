@@ -1,15 +1,14 @@
 package ApiREST;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+
 
 public class UserView {
     private String name;
     private String username;
     private String fechaDeNacimiento;
+    private String password;
     public UserView(){}
-    public UserView(String username,String name,String fechaDeNacimiento){
+    public UserView(String username,String name,String fechaDeNacimiento,String password){
       this.username=username;
       this.name= name;
       this.fechaDeNacimiento = fechaDeNacimiento;
@@ -25,5 +24,9 @@ public class UserView {
 
     public String getFechaDeNacimiento() {
         return fechaDeNacimiento;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

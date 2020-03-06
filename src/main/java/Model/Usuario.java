@@ -14,6 +14,7 @@ public class Usuario {
     private String nombreUsuario;
     private LocalDate fechaDeRegistro;
     private LocalDate fechaDeNacimiento;
+    private String password;
     private List<Usuario> amigos;
     private List<Visualizable> vistas;
     private List<Visualizable> favoritas;
@@ -30,6 +31,14 @@ public class Usuario {
       this.nombreUsuario = usuario;
       this.fechaDeNacimiento = fechaNacimiento;
       this.fechaDeRegistro = fechaRegistro;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void addAmigo(Usuario u){
