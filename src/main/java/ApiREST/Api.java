@@ -13,7 +13,7 @@ public class Api {
 
     public static void main(String[] args){
         ControllerTrainet controller =new ControllerTrainet();
-        Trainet trainet = new Trainet();
+
         Javalin app = Javalin.create(javalinConfig ->
         {
             javalinConfig.defaultContentType = "application/json";
@@ -30,6 +30,15 @@ public class Api {
               path("/:username",()->{
                 get(controller::getUser);
               });
+            });
+            path("peliculas",()->{
+                get(controller::allContent);
+                path("/:titulo",()->{
+                    get(controller::getPelicula);
+                });
+                path("/:titulo/:username",()->{
+                    post(controller::verPelicula);
+                });
             });
 
         });
