@@ -65,7 +65,7 @@ public class Trainet {
         return usuarios;
     }
     public Usuario buscarUsuario(String nameUser){
-        List<Usuario> usersearched=this.usuarios.stream().filter(user->user.getNombreUsuario()==nameUser).collect(Collectors.toList());
+        List<Usuario> usersearched=this.usuarios.stream().filter(user->user.getNombreUsuario().equals(nameUser)).collect(Collectors.toList());
         if(usersearched.isEmpty()){
             return null;
         }

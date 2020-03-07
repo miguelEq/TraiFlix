@@ -74,7 +74,6 @@ public class ControllerTrainet {
 
     public void getPelicula(Context context) {
         String titulo = context.pathParam("titulo");
-        System.out.println(titulo);
         List<Visualizable> result = this.trainet.getVisualizables().stream().filter(v->v.getTitulo().equals(titulo)).collect(Collectors.toList());
         if(result.isEmpty()){
             context.status(400);
@@ -91,9 +90,7 @@ public class ControllerTrainet {
     }
 
     public void verPelicula(Context context){
-
-
-       try {
+        try {
            String titulo =context.pathParam("titulo");
            String username =context.pathParam("username");
            trainet.verPelicula(titulo,username);

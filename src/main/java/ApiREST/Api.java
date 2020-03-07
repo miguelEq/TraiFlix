@@ -31,13 +31,13 @@ public class Api {
                 get(controller::getUser);
               });
             });
-            path("peliculas",()->{
+            path("peliculas",()-> {
                 get(controller::allContent);
-                path("/:titulo",()->{
+                path("/:titulo", () -> {
                     get(controller::getPelicula);
-                });
-                path("/:titulo/:username",()->{
-                    post(controller::verPelicula);
+                    path("/:username", () -> {
+                        post(controller::verPelicula);
+                    });
                 });
             });
 
