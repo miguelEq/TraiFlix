@@ -184,6 +184,13 @@ public class Trainet {
         this.pelisYseries.add(avenger);
         this.pelisYseries.add(madagascar);
 
+        Usuario miguel = new Usuario(1.0,"miguel","miguel10", LocalDate.now(),LocalDate.now());
+        Usuario lucia = new Usuario(2.0,"lucia","luciana12", LocalDate.now(),LocalDate.now());
+        Usuario jorge = new Usuario(3.0,"jorge","jorgito", LocalDate.now(),LocalDate.now());
+        this.addUsuario(miguel);
+        this.addUsuario(lucia);
+        this.addUsuario(jorge);
+
         return this;
     }
 
