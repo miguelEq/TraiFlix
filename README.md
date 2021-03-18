@@ -1,9 +1,14 @@
 # TraiFlix
 
+**status: in progress**
+
  1- Se modela un dominio donde se pueden  crear peliculas y series(estas estan compuestas por temporadas y capitulos) ademas de agregarle contenido relacionado a las mismas las cuales pueden ser tanto peliculas como series.Tambien se pueden crear usuarios los cuales pueden ver peliculas,series y tener sus favoritos, puntuar,etc.
  
  2- Se modela una API REST que ofrece algunas funciones para interactuar con el dominio.  
 
+**Los tests estan en src/test/java/ModelTest**
+
+**La api esta en src/main/java/ApiREST (solo hay que ejecutar la clase)**
 
 ## Endpoints 
 
@@ -39,5 +44,18 @@ Body
 "directores":["James Cameron"]
 }
 ```
+Obtener un user en especifico
 
+#### GET /users/miguel10
+
+Body
+
+```json
+{"nombre":"miguel",
+"username":"miguel10",
+"edad":0,
+"contenidoVisto":[]}
+```
+
+### Stack: Java(8), Javalin
 
