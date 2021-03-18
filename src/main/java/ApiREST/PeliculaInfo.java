@@ -15,7 +15,6 @@ public class PeliculaInfo extends VisualizableInfo{
         super(visualizable);
         this.actores = ((Pelicula) visualizable).getActoresPrincipales();
         this.directores =((Pelicula) visualizable).getDirectores();
-        this.fechaDeEstreno =((Pelicula) visualizable).getFechaDeEstreno();
     }
 
 
@@ -23,9 +22,6 @@ public class PeliculaInfo extends VisualizableInfo{
         return directores;
     }
 
-    public LocalDate getFechaDeEstreno() {
-        return fechaDeEstreno;
-    }
 
     public List<String> getActores() {
         return actores;
